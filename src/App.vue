@@ -32,7 +32,7 @@ export default {
 <style lang="scss" scoped>
 
 #app {
-  background-color: #c8e0fa;
+  background-color: rgb(232, 239, 243);
   font-size: 1.2rem;
   font-family: "Open Sans", Arial, Helvetica, Verdana, sans-serif;
 }

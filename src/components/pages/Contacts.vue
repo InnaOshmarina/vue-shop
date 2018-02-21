@@ -1,6 +1,6 @@
 <template>
   <div>
-    Our contacts
+    Наши контакты
   </div>
 </template>
 

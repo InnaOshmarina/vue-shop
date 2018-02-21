@@ -1,6 +1,6 @@
 <template>
   <div>
-    Information about us
+    Информация о нашей компании.
   </div>
 </template>
 

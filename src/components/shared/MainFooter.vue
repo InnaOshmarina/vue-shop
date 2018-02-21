@@ -1,15 +1,16 @@
 <template>
   <div class="for-footer">
     <b-container class="bv-example-row">
-        <b-row>
-            <b-col sm="4">
-               <span>Copyright © 2018 ИООО «Пиксель»</span>
-            </b-col>
-            <b-col sm="8">
-              <b-nav class="d-flex justify-content-end">     
+        <b-row >
+            <b-col sm="8" >
+              <b-nav vertical>
+                  <b-nav-item><router-link :to="{ name: 'about-us' }">О компании</router-link></b-nav-item>     
                   <b-nav-item><router-link :to="{ name: 'contacts' }">Контакты</router-link></b-nav-item>
                   <b-nav-item class="for-contact-form"><router-link :to="{ name: 'contact-form' }">Форма обратной связи</router-link></b-nav-item>
               </b-nav>
+            </b-col>
+            <b-col sm="4" class="d-flex justify-content-end">
+               <span>Copyright © 2018 ИООО «Пиксель»</span>
             </b-col>
         </b-row>
     </b-container>
@@ -29,7 +30,8 @@ export default {
 
 <style lang="scss" scoped>
   .for-footer {
-    background: rgb(192, 189, 189);
+    background: rgb(91, 92, 94);
+   
   }
   .bv-example-row {
     padding-top: 1.75rem;
@@ -42,14 +44,18 @@ export default {
   span {
     font-size: 0.8rem;
     line-height: 1.2rem;
-    color: #000;
+    color: #fff;
   }
 
   .nav-item a {
     text-decoration: none;
-    color: #000;
-    margin-left: 0.5rem;
-    padding: 0.5rem;
+    color: #fff;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0.5rem;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   
