@@ -3,7 +3,7 @@
       <b-navbar toggleable="lg"> 
         <b-container>
           <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-          <b-navbar-brand><router-link :to="{ name: 'home' }">P I  X E L</router-link></b-navbar-brand>
+          <b-navbar-brand><router-link :to="{ name: 'home' }">P I X E L</router-link></b-navbar-brand>
           <b-collapse is-nav id="nav_collapse">
 
             <b-navbar-nav>
@@ -63,7 +63,7 @@ export default {
     font-size: 2rem;
     font-family: 'Gloria Hallelujah', cursive;
     font-weight: 900;
-    color: #314647;
+    color: rgb(39, 116, 240);
   }
 
   .nav-item a {

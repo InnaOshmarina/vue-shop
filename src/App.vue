@@ -1,12 +1,10 @@
 <template>
   <div id="app">
-      <Header></Header>
-      <br><br>
+      <Header class="pb-5"></Header>
       <b-container>
-          <router-view>loading</router-view>
+          <router-view></router-view>
       </b-container>
-      <br><br><br>
-      <main-footer></main-footer>
+      <main-footer class="mt-5"></main-footer>
   </div>
 </template>
 
@@ -32,13 +30,9 @@ export default {
 <style lang="scss" scoped>
 
 #app {
-  background-color: rgb(232, 239, 243);
   font-size: 1.2rem;
   font-family: "Open Sans", Arial, Helvetica, Verdana, sans-serif;
 }
-// .container {
-  
-// }
 
 </style>
 

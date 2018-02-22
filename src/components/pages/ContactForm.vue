@@ -75,9 +75,7 @@
 
 <style lang="scss" scoped>
 
-  // .btn {
-  //   margin-right
-  // }
+  
 </style>
 
 
