@@ -13,7 +13,7 @@
     name: 'search-product',
     data () {
         return {
-        msg: ''
+        
         }
     }
 }

@@ -3,7 +3,10 @@
       <b-navbar toggleable="lg"> 
         <b-container>
           <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-          <b-navbar-brand><router-link :to="{ name: 'home' }">P I X E L</router-link></b-navbar-brand>
+          <b-navbar-brand><router-link :to="{ name: 'home' }" id="for-toolTip-1">P I X E L</router-link></b-navbar-brand>
+          <b-tooltip target="for-toolTip-1" placement="bottom">
+          На главную страницу
+          </b-tooltip>
           <b-collapse is-nav id="nav_collapse">
 
             <b-navbar-nav>

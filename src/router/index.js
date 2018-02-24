@@ -7,6 +7,7 @@ import Products from '../components/pages/Products.vue'
 import SignIn from '../components/pages/SignIn.vue'
 import SignUp from '../components/pages/SignUp.vue'
 import ContactForm from '../components/pages/ContactForm.vue'
+import CardAppleMQD32 from '../components/pages/CardApple[MQD32].vue'
 
 
 Vue.use(Router);
@@ -48,6 +49,11 @@ const router = new Router({
       path: '/contactForm',
       component: ContactForm,
       name: 'contact-form'
+    },
+    {
+      path: '/cardApple[MQD32]',
+      component: CardAppleMQD32,
+      name: 'card-apple-MQD32'
     }
   ]
 })
