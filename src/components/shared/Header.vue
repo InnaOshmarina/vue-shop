@@ -9,9 +9,13 @@
           </b-tooltip>
           <b-collapse is-nav id="nav_collapse">
 
-            <b-navbar-nav>
-              <b-nav-item><router-link :to="{ name: 'products' }">Каталог товаров</router-link></b-nav-item>
-            </b-navbar-nav>
+            <b-nav-item-dropdown text="Каталог товаров">
+                <b-dropdown-item v-for="(category, index) in categories" :key="index">
+                  <router-link :to="{ name: 'products', params: { id: category.category_id } }"> 
+                     {{ category.name }}
+                  </router-link>
+                </b-dropdown-item>
+            </b-nav-item-dropdown>
 
             <!-- Right aligned nav items -->
             <b-navbar-nav class="ml-auto">
@@ -42,14 +46,18 @@
 </template>
 
 <script>
-export default {
-  name: 'header',
-  data () {
-    return {
-      msg: ''
+    import {categories} from '../../data.js';
+    import {goods} from '../../data.js';
+
+    export default {
+      name: 'header',
+      data () {
+        return {
+          categories,
+          goods
+        }
+      }
     }
-  }
-}
 </script>
 
 <style lang="scss" scoped>

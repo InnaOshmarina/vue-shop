@@ -2,15 +2,15 @@
   <div>
     <table class="table table-bordered">
         <tr>
-            <td>имя товара</td>
+            <td>Имя товара</td>
             <td>{{ product.name }}</td>
         </tr>
         <tr>
-            <td>описание товара</td>
+            <td>Описание товара</td>
             <td>{{ product.description }}</td>
         </tr>
         <tr>
-            <td>цена</td>
+            <td>Цена, руб.</td>
             <td>{{ product.price }}</td>
         </tr>
     </table>
