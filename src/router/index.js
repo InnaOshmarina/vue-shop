@@ -8,6 +8,7 @@ import Products from '../components/pages/Products.vue'
 import SignIn from '../components/pages/SignIn.vue'
 import SignUp from '../components/pages/SignUp.vue'
 import ContactForm from '../components/pages/ContactForm.vue'
+import ProductDetails from '../components/pages/ProductDetails.vue'
 
 
 
@@ -22,8 +23,8 @@ const router = new Router({
     {path: '/categories/:category_id', component: Products, name: 'products'},
     {path: '/signIn', component: SignIn, name: 'sign-in'},
     {path: '/signUp', component: SignUp, name: 'sign-up'},
-    {path: '/contactForm', component: ContactForm, name: 'contact-form'}
-    
+    {path: '/contactForm', component: ContactForm, name: 'contact-form'},
+    {path: '/products/:id', component: ProductDetails, name: 'product-details'}
   ]
 })
 export default router

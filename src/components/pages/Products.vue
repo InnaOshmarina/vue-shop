@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-row class="mt-5" v-for="(good, index) in goods" :key="index">
+    <b-row class="mt-5" v-for="(good, index) in separateCategory" :key="index">
         <!-- <b-col lg="3"> -->
           <!-- <router-link :to="{ name: 'product-details', params: { id: good.id } }">
              <img src="https://content2.onliner.by/catalog/device/header/69fd1638fafefbe0ecc02ab7fd9391f0.jpeg"
@@ -8,12 +8,14 @@
           </router-link> -->
         <!-- </b-col> -->
         <b-col lg="9">
-            <h4>{{ separateCategory.name }}</h4>
-            <p>{{ separateCategory.description }}</p>
+            <h4><router-link :to="{ name: 'product-details', params: { id: good.id } }">
+              {{ good.name }}</router-link>
+              </h4>
+            <p>{{ good.description }}</p>
 
         </b-col>
         <b-col lg="3">
-            <span>от {{ separateCategory.price }} р.</span>
+            <span>от {{ good.price }} р.</span>
         </b-col>
     </b-row>
     <hr>
@@ -21,12 +23,16 @@
 </template>
 
 <script>
+ import Header from '../shared/Header.vue'
  import {categories} from '../../data.js';
  import {goods} from '../../data.js';
 
 
     export default {
       name: 'products',
+      components: {
+          Header
+      },
       data() {
         return {
             categories,
@@ -35,15 +41,19 @@
       },
       computed: {
           separateCategory() {
-              const ourId = this.$route.params.id;
+            // console.log(this.$route);
+              const ourId = this.$route.params.category_id;
               const ourProducts = this.goods.filter(function(Object) {
-                if (Object.category_id === ourId) {
-                  return true;
-                } else {
-                  return false;
-                }
+                return Object.category_id == ourId;
+                // if (Object.category_id == ourId) {
+                //   return true;
+                // } else {
+                //   return false;
+                // }
               });
+              // console.log(ourProducts);
               return ourProducts;
+              
               
           }
       }

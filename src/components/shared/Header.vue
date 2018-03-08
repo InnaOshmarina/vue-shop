@@ -8,25 +8,27 @@
           На главную страницу
           </b-tooltip>
           <b-collapse is-nav id="nav_collapse">
+              <b-navbar-nav class="mr-auto">
+                  <b-nav-item-dropdown text="Каталог товаров">
+                      <b-dropdown-item v-for="(category, index) in categories" :key="index">
+                        <router-link :to="{ name: 'products', params: { category_id: category.category_id } }"> 
+                          {{ category.name }}
+                        </router-link>
+                      </b-dropdown-item>
+                  </b-nav-item-dropdown> 
+              </b-navbar-nav>
+              <!-- Right aligned nav items -->
+              <b-navbar-nav class="ml-auto">
 
-            <b-nav-item-dropdown text="Каталог товаров">
-                <b-dropdown-item v-for="(category, index) in categories" :key="index">
-                  <router-link :to="{ name: 'products', params: { id: category.category_id } }"> 
-                     {{ category.name }}
-                  </router-link>
-                </b-dropdown-item>
-            </b-nav-item-dropdown>
+                <b-nav-item right>
+                  <router-link :to="{ name: 'sign-in' }">Вход</router-link>
+                </b-nav-item>
 
-            <!-- Right aligned nav items -->
-            <b-navbar-nav class="ml-auto">
-              <b-nav-item right>
-                <router-link :to="{ name: 'sign-in' }">Вход</router-link>
-              </b-nav-item>
+                <b-nav-item right class="for-sign-up">
+                  <router-link :to="{ name: 'sign-up' }">Регистрация</router-link> 
+                </b-nav-item>
 
-              <b-nav-item right class="for-sign-up">
-                <router-link :to="{ name: 'sign-up' }">Регистрация</router-link> 
-              </b-nav-item>
-            </b-navbar-nav>
+              </b-navbar-nav>
 
           </b-collapse>
         </b-container> 
@@ -81,6 +83,10 @@
     text-decoration: none;
     color: #000;
     margin-right: 1.2rem;
+  }
+
+  .nav-item .dropdown-item:active {
+    background-color: #aff0be;;
   }
 
   .ml-auto .for-sign-up a {
