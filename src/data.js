@@ -1,4 +1,5 @@
 export const categories = [
+  {category_id: 'all', name:'Все товары'},
   {category_id: 1, name:'Кондиционеры'},
   // к реализации:
   // {category_id: 1, name:'Кондиционеры', children: [{}, {}, {}]},

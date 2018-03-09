@@ -33,32 +33,26 @@
           </b-collapse>
         </b-container> 
       </b-navbar>
-
-      <div class="for-search-product"> 
-        <b-container>       
-            <b-nav-form>
-              <div class="for-nav-form">
-                  <b-form-input class="mr-sm-2" type="text" placeholder="Поиск товара"></b-form-input>
-                  <b-button variant="outline-primary" class="my-2 my-sm-0" type="submit">Найти</b-button>
-              </div>
-            </b-nav-form>  
-        </b-container>     
-      </div>
+      <search></search>
     </div>
 </template>
 
 <script>
+    import Search from '../pages/Search.vue';
     import {categories} from '../../data.js';
     import {goods} from '../../data.js';
 
     export default {
       name: 'header',
-      data () {
+      components: {
+        Search
+      },
+      data() {
         return {
           categories,
           goods
         }
-      }
+      }      
     }
 </script>
 
@@ -93,12 +87,5 @@
     margin-right: 0;
   }
 
-  .for-search-product {
-    background-color: rgb(203, 214, 221);
-  }
-
-  .for-nav-form {
-    margin: 0.5rem auto;
-  }
  
 </style>
