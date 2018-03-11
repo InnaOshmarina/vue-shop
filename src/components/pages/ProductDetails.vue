@@ -3,15 +3,15 @@
     <table class="table table-bordered">
         <tr>
             <td>Имя товара</td>
-            <td>{{ product.name }}</td>
+            <td class="for-name">{{ product.name }}</td>
         </tr>
         <tr>
             <td>Описание товара</td>
             <td>{{ product.description }}</td>
         </tr>
         <tr>
-            <td>Цена, руб.</td>
-            <td>{{ product.price }}</td>
+            <td>Цена</td>
+            <td>от <b>{{ product.price }}</b> руб.</td>
         </tr>
     </table>
   </div>
@@ -33,11 +33,13 @@
             const ourProduct = this.goods.find(item => item.id === ourId);
             return ourProduct;
         }
-    }
-    
+    }   
 }
 </script>
 
 <style lang="scss" scoped>
- 
+
+    .for-name {
+        font-weight: 700;
+    }
 </style>

@@ -10,8 +10,6 @@ import SearchResults from '../components/pages/SearchResults.vue'
 import ContactForm from '../components/pages/ContactForm.vue'
 import ProductDetails from '../components/pages/ProductDetails.vue'
 
-
-
 Vue.use(Router);
 
 const router = new Router({

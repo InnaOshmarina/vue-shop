@@ -8,7 +8,8 @@
           На главную страницу
           </b-tooltip>
           <b-collapse is-nav id="nav_collapse">
-              <b-navbar-nav class="mr-auto">
+            <item-dropdown></item-dropdown>
+              <!-- <b-navbar-nav class="mr-auto">
                   <b-nav-item-dropdown text="Каталог товаров">
                       <b-dropdown-item v-for="(category, index) in categories" :key="index">
                         <router-link :to="{ name: 'products', params: { category_id: category.category_id } }"> 
@@ -16,7 +17,7 @@
                         </router-link>
                       </b-dropdown-item>
                   </b-nav-item-dropdown> 
-              </b-navbar-nav>
+              </b-navbar-nav> -->
               <!-- Right aligned nav items -->
               <b-navbar-nav class="ml-auto">
 
@@ -38,6 +39,7 @@
 </template>
 
 <script>
+    import ItemDropdown from './ItemDropdown.vue';
     import Search from '../pages/Search.vue';
     import {categories} from '../../data.js';
     import {goods} from '../../data.js';
@@ -45,6 +47,7 @@
     export default {
       name: 'header',
       components: {
+        ItemDropdown,
         Search
       },
       data() {
@@ -79,13 +82,8 @@
     margin-right: 1.2rem;
   }
 
-  .nav-item .dropdown-item:active {
-    background-color: #aff0be;;
-  }
-
   .ml-auto .for-sign-up a {
     margin-right: 0;
   }
 
- 
 </style>
