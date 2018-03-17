@@ -21,43 +21,31 @@
 </template>
 
 <script>
-  export default {
-    name: 'sign-in',
-    data() {
-      return {
-        show: true,
-        signSuccess: false,
-        signError: false,
-        // соединим импуты с какими-либо данными, чтобы их проверять и получать к ним доступ:
-        user: {
-          email: '',
-          password: ''
-        }
+    import Vue from 'vue';
+    import Component from 'vue-class-component';
+
+      @Component({
+          name: 'sign-in'
+      })
+
+      export default class SignIn extends Vue {
+          constructor() {
+              super();
+              this.show = true;
+              this.signSuccess = false;
+              this.signError = false;
+              // соединим импуты с какими-либо данными, чтобы их проверять и получать к ним доступ:
+              this.user = {
+                  email: '',
+                  password: ''
+              }
+          }
+
+          // enterUser() {
+          //
+          // }
       }
-    },
-    methods: {
-      enterUser() {
-      //   firebase.auth().signInWithEmailAndPassword(this.user.email, this.user.password)
-      //       .then( response => {
-      //         // console.log(response);
-      //         const sett = {
-      //           email: response.email,
-      //           // если регистрация завершена - то показывается email пользователя:
-      //           signComplete: true,
-      //           // если вход прошел успешно, то тогда нас будет перекидывать на главную страницу:
-      //           mainPage: true,
-      //           uid: response.uid,
-      //         }
-      //         this.$emit('addUser', sett);
-      //         this.show = false;
-      //         this.signSuccess = true;
-      //       })
-      //       .catch(error => {
-      //         this.signError = true;
-      //       })
-      }
-    }
-  }
+
 </script>
 
 <style lang="scss" scoped>

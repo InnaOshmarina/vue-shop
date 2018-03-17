@@ -17,30 +17,23 @@
 </template>
 
 <script>
-    export default {
-    name: 'search-product',
-    data() {
-        return {
-          searchProduct: ''
-        }
-    },
-    methods: {
-      filteredProduct() {
-        // console.log(this.searchProduct);
 
-        // const goods_array = this.goods,
-        //       searchProduct = this.searchProduct;
-        // searchProduct = searchProduct.trim().toLowerCase();  
-        // goods_array = goods_array.filter(function(item){
-        //         if(item.name.toLowerCase().indexOf(searchProduct) !== -1){
-        //             return item;
-        //         }
-        //     }) 
-        // return goods_array;
-        this.$router.push({ name: 'search-results', params: { q: this.searchProduct } });
-      }
+
+
+    @Component({
+        name: 'search-product'
+    })
+    export default class Search extends Vue {
+        constructor() {
+            super();
+            this.searchProduct = '';
+        }
+
+        filteredProduct() {
+            this.$router.push({ name: 'search-results', params: { q: this.searchProduct } });
+        }
+
     }
-}
 </script>
 
 <style lang="scss" scoped>

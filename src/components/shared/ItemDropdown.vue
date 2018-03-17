@@ -12,14 +12,12 @@
 
 <script>
     import {categories} from '../../data.js';
-    import {goods} from '../../data.js';
 
     export default {
       name: 'item-dropdown',
       data() {
         return {
-          categories,
-          goods
+          categories
         }
       }      
     }

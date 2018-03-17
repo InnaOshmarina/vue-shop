@@ -16,13 +16,11 @@
 </template>
 
 <script>
-export default {
-  name: 'product-item',
-  props: ['products'],
-  data () {
-    return {}
-  }
-}
+
+    export default {
+      name: 'product-item',
+      props: ['products']
+    }
 </script>
 
 <style lang="scss" scoped>

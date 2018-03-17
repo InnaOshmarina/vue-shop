@@ -18,23 +18,45 @@
 </template>
 
 <script>
-    import {goods} from '../../data.js';
+    import Vue from 'vue';
+    import Component from 'vue-class-component';
+    import { productApi } from "../../api/productApi";
 
-    export default {
-    name: 'product-details',
-    data () {
-        return {
-          goods
+    @Component ({
+        name: 'product-details'
+    })
+    export default class ProductDetails extends Vue {
+        constructor() {
+            super();
+            this.goods = []
         }
-    },
-    computed: {
-        product() {
-            const ourId = this.$route.params.id;
-            const ourProduct = this.goods.find(item => item.id === ourId);
+
+        get product() {
+            let ourProduct = {
+                name: '',
+                description: '',
+                price: ''
+            };
+
+            if (this.goods.length > 0) {
+                const ourId = this.$route.params.id;
+                ourProduct = this.goods.find(item => item.id === ourId);
+            }
+
             return ourProduct;
         }
-    }   
-}
+
+        // huk of lifecycle
+        mounted() {
+            productApi()
+                .then(response => {
+                    this.goods = response.data.results;
+                })
+                .catch(e => {
+                    this.errors.push(e)
+                })
+        }
+    }
 </script>
 
 <style lang="scss" scoped>
@@ -42,4 +64,5 @@
     .for-name {
         font-weight: 700;
     }
+
 </style>

@@ -42,35 +42,44 @@
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        form: {
-          name: '',
-          email: '',
-          text: ''
-        },
-        show: true
-      }
-    },
-    methods: {
-      onSubmit (evt) {
-        evt.preventDefault();
-        alert(JSON.stringify(this.form));
-      },
-      onReset (evt) {
-        evt.preventDefault();
-        /* Reset our form values */
-        this.form.name = '';
-        this.form.email = '';
-        this.form.text = '';
 
-        /* Trick to reset/clear native browser form validation state */
-        this.show = false;
-        this.$nextTick(() => { this.show = true });
+  import Vue from 'vue';
+  import Component from 'vue-class-component';
+
+  @Component ({
+      name: 'contact-form'
+  })
+
+  export default class ContactForm extends Vue {
+      constructor() {
+          super();
+          this.form = {
+              name: '',
+              email: '',
+              text: ''
+          };
+          this.show = true
       }
-    }
+
+      onSubmit (evt) {
+          evt.preventDefault();
+          alert(JSON.stringify(this.form));
+      }
+
+      onReset (evt) {
+          evt.preventDefault();
+          /* Reset our form values */
+          this.form.name = '';
+          this.form.email = '';
+          this.form.text = '';
+
+          /* Trick to reset/clear native browser form validation state */
+          this.show = false;
+          this.$nextTick(() => { this.show = true });
+      }
   }
+
+
 </script>
 
 <style lang="scss" scoped>

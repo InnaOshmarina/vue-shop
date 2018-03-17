@@ -1,40 +1,56 @@
 <template>
-   <div> 
-       <product-item :products="filteredProduct"></product-item>   
+   <div>
+       <h4>Результаты поиска:</h4>
+       <div v-if="filteredProduct.length > 0">
+           <product-item :products="filteredProduct"></product-item>
+       </div>
+       <div v-else>
+           По вашему запросу ничего не найдено.
+       </div>
+
   </div>
 </template>
 
 <script>
+    import Vue from 'vue';
+    import Component from 'vue-class-component';
+
     import ProductItem from '../shared/ProductItem.vue';
-    import {goods} from '../../data.js';
+    import { goods } from '../../data.js';
 
-    export default {
-    name: 'search-results',
-    components: {
-        ProductItem
-    },
-    data() {
-        return {
-            goods
+    @Component({
+        name: 'search-results',
+        components: {
+            ProductItem
+        },
+        props: {
+            propMessage: String
         }
-    },
-    computed: {
-          filteredProduct() {
-            // console.log(this.$route);
+    })
 
-            const inputResult = (this.$route.params.q).trim().toLowerCase();                                           
+    export default class SearchResults extends Vue {
+        constructor() {
+            super();
+            this.goods = goods;
+        }
+
+        get filteredProduct() {
+            const inputResult = (this.$route.params.q).trim().toLowerCase();
             const ourProducts = this.goods.filter((currentProduct) => {
                 if(currentProduct.name.toLowerCase().indexOf(inputResult) !== -1){
                     return currentProduct;
                 }
             });
-            // console.log(ourProducts);
             // Возвращает массив с отфильтрованными данными
-            return ourProducts;          
-          }
+            return ourProducts;
+        }
     }
-}
+
+
 </script>
 
 <style lang="scss" scoped>
+    h4 {
+        font-weight: 700;
+    }
 </style>

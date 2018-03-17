@@ -18,11 +18,6 @@ export default {
   components: {
       Header,
       MainFooter
-  },
-  data () {
-    return {
-      msg: ''
-    }
   }
 }
 </script>

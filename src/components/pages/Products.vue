@@ -1,37 +1,55 @@
 <template>
-  <div>
-    <product-item :products="separateCategory"></product-item> 
-  </div>
+    <div>
+        <product-item :products="separateCategory"></product-item>
+    </div>
 </template>
 
 <script>
+    import Vue from 'vue';
+    import Component from 'vue-class-component';
     import ProductItem from '../shared/ProductItem.vue'
     import {categories} from '../../data.js';
-    import {goods} from '../../data.js';
+    import {productApi} from "../../api/productApi";
 
-    export default {
-      name: 'products',
-      components: {
-        ProductItem
-      },
-      data() {
-        return {
-            categories,
-            goods           
-        }    
-      },
-      computed: {
-          separateCategory() {
+    @Component({
+        name: 'products',
+        components: {
+            ProductItem
+        }
+    })
+    export default class Products extends Vue {
+        constructor() {
+            super();
+            this.goods = [];
+            this.errors = [];
+            this.categories = categories;
+
+        }
+
+        // computed
+        get separateCategory() {
             // console.log(this.$route);
-              const ourId = this.$route.params.category_id;
-              if (ourId == 'all') {
-              return this.goods;      
-              }          
-              const ourProducts = this.goods.filter((Object) => Object.category_id == ourId);
-              // console.log(ourProducts);
-              return ourProducts;             
-          }
-      }
+            const ourId = this.$route.params.category_id;
+            if (ourId == 'all') {
+                return this.goods;
+            }
+            const ourProducts = this.goods.filter((Object) => Object.category_id == ourId);
+            // console.log(ourProducts);
+            return ourProducts;
+        }
+
+
+        // huk of lifecycle
+        mounted() {
+            productApi()
+                .then(response => {
+                    this.goods = response.data.results;
+                })
+                .catch(e => {
+                    this.errors.push(e)
+                })
+
+        }
     }
 </script>
 

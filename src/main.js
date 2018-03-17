@@ -7,7 +7,5 @@ Vue.use(BootstrapVue);
 
 new Vue({
   el: '#app',
-  router,
-  BootstrapVue,
   render: h => h(App)
-})
+});

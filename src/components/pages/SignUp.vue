@@ -1,5 +1,6 @@
 <template>
   <div class="for-sign-up">
+
       <form class="mt-5" @submit.prevent="registerUser" v-if="show">
           <div class="form-group">
             <label for="email">Ваш email:</label>
@@ -33,48 +34,41 @@
 
 
 <script>
-    export default {
-      name: 'sign-up',
-      data() {
-        return {
-          show: true,
-          signSuccess: false,
-          signError: false,
-          // соединим импуты с какими-либо данными, чтобы их проверять и получать к ним доступ:
-          user: {
-            email: '',
-            password: '',
-            confirmPassword: ''
-          },
-          errorConfirm: false,
-          errorSmall: false
+    import Vue from 'vue';
+    import Component from 'vue-class-component';
+
+    @Component({
+        name: 'sign-up'
+    })
+
+    export default class SignUp extends Vue {
+        constructor() {
+            super();
+            this.show = true;
+            this.signSuccess = false;
+            this.signError = false;
+            // соединим импуты с какими-либо данными, чтобы их проверять и получать к ним доступ:
+            this.user = {
+                email: '',
+                password: '',
+                confirmPassword: ''
+            };
+            this.errorConfirm = false;
+            this.errorSmall = false
         }
-      },
-      methods: {
+
         registerUser() {
-          this.errorConfirm = false;
-          this.errorSmall = false;
-          // вывод ошибки при несовпадении паролей:
-          if (this.user.password !== this.user.confirmPassword) {
-            this.errorConfirm = true;
-          } else if
-            (this.user.password.length < 6) {
-              this.errorSmall = true;
+            this.errorConfirm = false;
+            this.errorSmall = false;
+            // вывод ошибки при несовпадении паролей:
+            if (this.user.password !== this.user.confirmPassword) {
+                this.errorConfirm = true;
+            } else if (this.user.password.length < 6) {
+                this.errorSmall = true;
             }
-          // } else {
-          //   firebase.auth().createUserWithEmailAndPassword(this.user.email, this.user.password)
-          //     .then( () => {
-          //       this.$emit('regSuccess', 'sign-in');
-          //       this.show = false;
-          //       this.sigSuccess = true;
-          //     })
-          //     .catch( error => {
-          //       this.signError = true;
-          //     })
-          // }
         }
-      }
     }
+
 </script>
 
 <style lang="scss" scoped>
