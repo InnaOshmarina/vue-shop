@@ -4,12 +4,12 @@
           <b-nav-form>
             <div class="for-nav-form">
                 <b-form-input class="mr-sm-2" type="text" placeholder="Введите название товара"
-                v-model="searchProduct">
+                              v-model="searchProduct">
                 </b-form-input>                
-                    <b-button variant="outline-primary" class="my-2 my-sm-0" type="submit"
-                              @click.prevent="filteredProduct">Найти
-                    </b-button>
-                
+                <b-button variant="outline-primary" class="my-2 my-sm-0" type="submit"
+                          @click.prevent="filteredProduct">
+                  Найти
+                </b-button>                
             </div>
           </b-nav-form>  
       </b-container>     
@@ -17,8 +17,8 @@
 </template>
 
 <script>
-
-
+    import Vue from 'vue';
+    import Component from 'vue-class-component';
 
     @Component({
         name: 'search-product'
@@ -32,7 +32,6 @@
         filteredProduct() {
             this.$router.push({ name: 'search-results', params: { q: this.searchProduct } });
         }
-
     }
 </script>
 

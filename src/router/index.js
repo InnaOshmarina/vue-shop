@@ -9,6 +9,7 @@ import SignUp from '../components/pages/SignUp.vue'
 import SearchResults from '../components/pages/SearchResults.vue'
 import ContactForm from '../components/pages/ContactForm.vue'
 import ProductDetails from '../components/pages/ProductDetails.vue'
+import YourDiscounts from '../components/pages/YourDiscounts.vue'
 
 Vue.use(Router);
 
@@ -23,7 +24,8 @@ const router = new Router({
     {path: '/signUp', component: SignUp, name: 'sign-up'},
     {path: '/search-results/:q', component: SearchResults, name: 'search-results'},
     {path: '/contactForm', component: ContactForm, name: 'contact-form'},
-    {path: '/products/:id', component: ProductDetails, name: 'product-details'}
+    {path: '/products/:id', component: ProductDetails, name: 'product-details'},
+    {path: '/your-discounts', component: YourDiscounts, name: 'your-discounts'}
   ]
 })
 export default router

@@ -7,16 +7,14 @@
        <div v-else>
            По вашему запросу ничего не найдено.
        </div>
-
   </div>
 </template>
 
 <script>
     import Vue from 'vue';
     import Component from 'vue-class-component';
-
     import ProductItem from '../shared/ProductItem.vue';
-    import { goods } from '../../data.js';
+    import {productApi} from "../../api/productApi";
 
     @Component({
         name: 'search-results',
@@ -27,11 +25,10 @@
             propMessage: String
         }
     })
-
     export default class SearchResults extends Vue {
         constructor() {
             super();
-            this.goods = goods;
+            this.goods = [];
         }
 
         get filteredProduct() {
@@ -44,8 +41,15 @@
             // Возвращает массив с отфильтрованными данными
             return ourProducts;
         }
-    }
 
+        // Lifecycle Hook
+        mounted() {
+            productApi()
+                .then(response => {
+                    this.goods = response.data.results;
+                })
+        }
+    }
 
 </script>
 

@@ -32,7 +32,6 @@
   </div>
 </template>
 
-
 <script>
     import Vue from 'vue';
     import Component from 'vue-class-component';
@@ -40,7 +39,6 @@
     @Component({
         name: 'sign-up'
     })
-
     export default class SignUp extends Vue {
         constructor() {
             super();
@@ -65,7 +63,17 @@
                 this.errorConfirm = true;
             } else if (this.user.password.length < 6) {
                 this.errorSmall = true;
-            }
+            } else {
+            firebase.auth().createUserWithEmailAndPassword(this.user.email, this.user.password)
+              .then( () => {
+                this.$emit('regSuccess', 'sign-in');
+                this.show = false;
+                this.signSuccess = true;
+              })
+              .catch( error => {
+                this.signError = true;
+              })
+          }
         }
     }
 

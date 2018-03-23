@@ -18,6 +18,9 @@ export default {
   components: {
       Header,
       MainFooter
+  },
+  data() {
+        return {}
   }
 }
 </script>

@@ -46,7 +46,7 @@
             return ourProduct;
         }
 
-        // huk of lifecycle
+        // Lifecycle Hook
         mounted() {
             productApi()
                 .then(response => {

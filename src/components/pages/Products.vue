@@ -7,7 +7,7 @@
 <script>
     import Vue from 'vue';
     import Component from 'vue-class-component';
-    import ProductItem from '../shared/ProductItem.vue'
+    import ProductItem from '../shared/ProductItem.vue';
     import {categories} from '../../data.js';
     import {productApi} from "../../api/productApi";
 
@@ -38,8 +38,7 @@
             return ourProducts;
         }
 
-
-        // huk of lifecycle
+        // Lifecycle Hook
         mounted() {
             productApi()
                 .then(response => {
@@ -48,7 +47,6 @@
                 .catch(e => {
                     this.errors.push(e)
                 })
-
         }
     }
 </script>

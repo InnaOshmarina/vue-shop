@@ -9,32 +9,35 @@
           </b-tooltip>
           <b-collapse is-nav id="nav_collapse">
             <item-dropdown></item-dropdown>
-              <!-- <b-navbar-nav class="mr-auto">
-                  <b-nav-item-dropdown text="Каталог товаров">
-                      <b-dropdown-item v-for="(category, index) in categories" :key="index">
-                        <router-link :to="{ name: 'products', params: { category_id: category.category_id } }"> 
-                          {{ category.name }}
-                        </router-link>
-                      </b-dropdown-item>
-                  </b-nav-item-dropdown> 
-              </b-navbar-nav> -->
-              <!-- Right aligned nav items -->
-              <b-navbar-nav class="ml-auto">
+            
+            <!-- Right aligned nav items -->
+            <b-navbar-nav class="ml-auto" v-if="!signComplete">
 
-                <b-nav-item right>
-                  <router-link :to="{ name: 'sign-in' }">Вход</router-link>
-                </b-nav-item>
+              <b-nav-item right>
+                <router-link :to="{ name: 'sign-in' }" @click="switchSign('sign-in')">Вход</router-link>
+              </b-nav-item>
 
-                <b-nav-item right class="for-sign-up">
-                  <router-link :to="{ name: 'sign-up' }">Регистрация</router-link> 
-                </b-nav-item>
+              <b-nav-item right class="for-sign-up">
+                <router-link :to="{ name: 'sign-up' }" @click="switchSign('sign-up')">Регистрация</router-link> 
+              </b-nav-item>
 
-              </b-navbar-nav>
+            </b-navbar-nav>
+            <b-navbar-nav class="ml-auto" v-else>
+              <!-- <router-view @addUser="email = $event.email, signComplete = $event.signComplete, userUid = $event.uid" :id="uid"></router-view> -->
+              <b-nav-item right>
+                <router-link :to="{ name: 'your-discounts' }">Ваши скидки</router-link>
+              </b-nav-item>
+
+              <b-nav-item right class="for-sign-up">
+                {{ email }} 
+              </b-nav-item>
+           
+            </b-navbar-nav>
 
           </b-collapse>
         </b-container> 
       </b-navbar>
-      <search></search>
+      <search></search>   
     </div>
 </template>
 
@@ -43,19 +46,34 @@
     import Search from '../pages/Search.vue';
     import {categories} from '../../data.js';
     import {goods} from '../../data.js';
+    import SignIn from '../pages/SignIn.vue';
+    import SignUp from '../pages/SignUp.vue';
+    import YourDiscounts from '../pages/YourDiscounts.vue';
 
     export default {
       name: 'header',
       components: {
         ItemDropdown,
-        Search
+        Search,
+        SignIn,
+        SignUp,
+        YourDiscounts
       },
       data() {
         return {
           categories,
-          goods
+          goods,
+          signComplete: false,
+          email: '',
+          uid: ''
         }
-      }      
+      },
+      methods: {
+    switchSign(currentSign) {
+      this.sign = currentSign;
+    }
+  }
+      // props: ['uid']     
     }
 </script>
 
@@ -82,7 +100,7 @@
     margin-right: 1.2rem;
   }
 
-  .ml-auto .for-sign-up a {
+  .ml-auto .for-sign-up a, .ml-auto .for-sign-up {
     margin-right: 0;
   }
 

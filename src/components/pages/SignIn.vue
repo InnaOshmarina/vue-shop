@@ -23,11 +23,14 @@
 <script>
     import Vue from 'vue';
     import Component from 'vue-class-component';
+    import Home from "./Home.vue";
 
       @Component({
-          name: 'sign-in'
+          name: 'sign-in',
+          components: {
+            Home
+        }
       })
-
       export default class SignIn extends Vue {
           constructor() {
               super();
@@ -40,12 +43,28 @@
                   password: ''
               }
           }
-
-          // enterUser() {
-          //
-          // }
+          enterUser() {
+            firebase.auth().signInWithEmailAndPassword(this.user.email, this.user.password)
+                .then( response => {
+                  // console.log(response);
+                  const sett = {
+                    email: response.email,
+                    // если регистрация завершена - то показывается email пользователя:
+                    signComplete: true,
+                    // если вход прошел успешно, то тогда нас будет перекидывать на главную страницу:
+                    // Home: true,
+                    uid: response.uid
+                  }
+                  this.$emit('addUser', sett);
+                  this.show = false;
+                  this.signError = false;
+                  this.signSuccess = true;
+                })
+                .catch(error => {
+                  this.signError = true;
+                })
+          }
       }
-
 </script>
 
 <style lang="scss" scoped>

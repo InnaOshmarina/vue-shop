@@ -26,10 +26,7 @@
     name: 'product-list-detail',
     props: {
         productItem: Object
-    }
-    
-    
-    
+    }  
 }
 </script>
 

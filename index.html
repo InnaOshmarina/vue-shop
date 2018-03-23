@@ -2,6 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>vue-shop</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/dist/main.css">
@@ -9,5 +10,19 @@
   <body>
     <div id="app"></div>
     <script src="/dist/build.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      // TODO: Replace with your project's customized code snippet
+      var config = {
+        apiKey: "AIzaSyDfDFSRnsXO5mtUu46J5HXWXeca-GBEJc8",
+        authDomain: "vue-shop-46592.firebaseapp.com",
+        databaseURL: "https://vue-shop-46592.firebaseio.com",
+        projectId: "vue-shop-46592",
+        storageBucket: "vue-shop-46592.appspot.com",
+        messagingSenderId: "282160356068"
+      };
+      firebase.initializeApp(config);
+    </script>
   </body>
 </html>

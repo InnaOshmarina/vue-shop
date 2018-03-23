@@ -21,9 +21,7 @@
 export default {
   name: 'main-footer',
   data () {
-    return {
-      msg: ''
-    }
+    return {}
   }
 }
 </script>

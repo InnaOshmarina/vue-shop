@@ -42,14 +42,12 @@
 </template>
 
 <script>
-
   import Vue from 'vue';
   import Component from 'vue-class-component';
 
   @Component ({
       name: 'contact-form'
   })
-
   export default class ContactForm extends Vue {
       constructor() {
           super();
@@ -78,12 +76,9 @@
           this.$nextTick(() => { this.show = true });
       }
   }
-
-
 </script>
 
 <style lang="scss" scoped>
-
   
 </style>
 
