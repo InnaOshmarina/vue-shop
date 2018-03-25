@@ -43,6 +43,7 @@
                   password: ''
               }
           }
+
           enterUser() {
             firebase.auth().signInWithEmailAndPassword(this.user.email, this.user.password)
                 .then( response => {
@@ -55,10 +56,12 @@
                     // Home: true,
                     uid: response.uid
                   }
-                  this.$emit('addUser', sett);
+                  console.log(this.$store);
+                  // мутацию сделать
                   this.show = false;
                   this.signError = false;
                   this.signSuccess = true;
+                  this.$store.commit('signIn', sett)
                 })
                 .catch(error => {
                   this.signError = true;

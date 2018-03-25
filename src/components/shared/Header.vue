@@ -23,7 +23,7 @@
 
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto" v-else>
-              <!-- <router-view @addUser="email = $event.email, signComplete = $event.signComplete, userUid = $event.uid" :id="uid"></router-view> -->
+              
               <b-nav-item right>
                 <router-link :to="{ name: 'your-discounts' }">Ваши скидки</router-link>
               </b-nav-item>
@@ -46,26 +46,26 @@
     import Search from '../pages/Search.vue';
     import {categories} from '../../data.js';
     import {goods} from '../../data.js';
-    import SignIn from '../pages/SignIn.vue';
-    import SignUp from '../pages/SignUp.vue';
     import YourDiscounts from '../pages/YourDiscounts.vue';
 
     export default {
       name: 'header',
+      // props: ['uid'],  
       components: {
         ItemDropdown,
         Search,
-        SignIn,
-        SignUp,
         YourDiscounts
       },
       data() {
         return {
           categories,
-          goods,
-          signComplete: false,
-          email: '',
-          uid: ''
+          goods
+        
+        }
+      },
+      computed: {
+        signComplete() {
+          return this.$store.getters.getUser.signComplete;
         }
       },
       methods: {
@@ -73,7 +73,7 @@
       this.sign = currentSign;
     }
   }
-      // props: ['uid']     
+         
     }
 </script>
 

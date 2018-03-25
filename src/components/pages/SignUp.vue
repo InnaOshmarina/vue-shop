@@ -66,7 +66,7 @@
             } else {
             firebase.auth().createUserWithEmailAndPassword(this.user.email, this.user.password)
               .then( () => {
-                this.$emit('regSuccess', 'sign-in');
+                // this.$emit('regSuccess', 'sign-in');
                 this.show = false;
                 this.signSuccess = true;
               })

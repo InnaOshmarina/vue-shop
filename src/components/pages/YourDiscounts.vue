@@ -12,11 +12,8 @@
     export default class YouDiscounts extends Vue {
         constructor() {
             super();
-            
-        }
-        
+        }       
     }
-
 </script>
 
 <style lang="scss" scoped>
