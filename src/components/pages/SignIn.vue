@@ -1,6 +1,6 @@
 <template>
   <div class="for-sign-in">
-      <form class="mt-5" @submit.prevent="enterUser" v-if="show">
+      <form class="mt-5" @submit.prevent="enterUser" v-if="!signComplete">
         <div class="form-group">
           <label for="email">Ваш email:</label>
           <input type="email" id="email" class="form-control" placeholder="Введите email:" required v-model="user.email">
@@ -11,7 +11,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Войти</button>
       </form>
-      <div class="alert alert-success mt-5" role="alert" v-if="signSuccess">
+      <div class="alert alert-success mt-5" role="alert" v-if="signComplete">
         <strong>Поздравляю!</strong> Вы вошли в систему.
       </div>
       <div class="alert alert-danger mt-5" role="alert" v-if="signError">
@@ -23,18 +23,13 @@
 <script>
     import Vue from 'vue';
     import Component from 'vue-class-component';
-    import Home from "./Home.vue";
 
       @Component({
-          name: 'sign-in',
-          components: {
-            Home
-        }
+          name: 'sign-in'
       })
       export default class SignIn extends Vue {
           constructor() {
               super();
-              this.show = true;
               this.signSuccess = false;
               this.signError = false;
               // соединим импуты с какими-либо данными, чтобы их проверять и получать к ним доступ:
@@ -43,7 +38,6 @@
                   password: ''
               }
           }
-
           enterUser() {
             firebase.auth().signInWithEmailAndPassword(this.user.email, this.user.password)
                 .then( response => {
@@ -52,20 +46,23 @@
                     email: response.email,
                     // если регистрация завершена - то показывается email пользователя:
                     signComplete: true,
-                    // если вход прошел успешно, то тогда нас будет перекидывать на главную страницу:
-                    // Home: true,
                     uid: response.uid
-                  }
+                  };
                   console.log(this.$store);
                   // мутацию сделать
-                  this.show = false;
+                  // this.show = false;
                   this.signError = false;
                   this.signSuccess = true;
-                  this.$store.commit('signIn', sett)
+                    // мутация:
+                  this.$store.commit('signIn', sett);
                 })
                 .catch(error => {
                   this.signError = true;
                 })
+
+          }
+          get signComplete() {
+              return this.$store.getters.getUser.signComplete;
           }
       }
 </script>

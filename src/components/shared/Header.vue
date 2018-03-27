@@ -25,11 +25,11 @@
             <b-navbar-nav class="ml-auto" v-else>
               
               <b-nav-item right>
-                <router-link :to="{ name: 'your-discounts' }">Ваши скидки</router-link>
+                <router-link :to="{ name: 'editing-products' }">Редактирование товаров</router-link>
               </b-nav-item>
 
               <b-nav-item right class="for-sign-up">
-                {{ email }} 
+                <router-link :to="{ name: 'your-discounts' }">Ваши скидки</router-link>
               </b-nav-item>
            
             </b-navbar-nav>
@@ -42,39 +42,38 @@
 </template>
 
 <script>
+    import Vue from 'vue';
+    import Component from 'vue-class-component';
     import ItemDropdown from './ItemDropdown.vue';
     import Search from '../pages/Search.vue';
-    import {categories} from '../../data.js';
-    import {goods} from '../../data.js';
+    // import {categories} from '../../data.js';
+    // import {goods} from '../../data.js';
+    import EditingProducts from '../pages/EditingProducts.vue';
     import YourDiscounts from '../pages/YourDiscounts.vue';
 
-    export default {
-      name: 'header',
-      // props: ['uid'],  
-      components: {
-        ItemDropdown,
-        Search,
-        YourDiscounts
-      },
-      data() {
-        return {
-          categories,
-          goods
-        
+    @Component({
+        name: 'header',
+        components: {
+            ItemDropdown,
+            Search,
+            EditingProducts,
+            YourDiscounts
         }
-      },
-      computed: {
-        signComplete() {
-          return this.$store.getters.getUser.signComplete;
+    })
+    export default class Products extends Vue {
+        constructor() {
+            super();
+
         }
-      },
-      methods: {
-    switchSign(currentSign) {
-      this.sign = currentSign;
+        get signComplete() {
+              return this.$store.getters.getUser.signComplete;
+        }
+
+        switchSign(currentSign) {
+              this.sign = currentSign;
+        }
     }
-  }
-         
-    }
+
 </script>
 
 <style lang="scss" scoped>
@@ -100,7 +99,7 @@
     margin-right: 1.2rem;
   }
 
-  .ml-auto .for-sign-up a, .ml-auto .for-sign-up {
+  .ml-auto .for-sign-up a {
     margin-right: 0;
   }
 

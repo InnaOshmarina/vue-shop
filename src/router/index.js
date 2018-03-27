@@ -10,6 +10,7 @@ import SearchResults from '../components/pages/SearchResults.vue'
 import ContactForm from '../components/pages/ContactForm.vue'
 import ProductDetails from '../components/pages/ProductDetails.vue'
 import YourDiscounts from '../components/pages/YourDiscounts.vue'
+import EditingProducts from '../components/pages/EditingProducts.vue'
 
 Vue.use(Router);
 
@@ -25,7 +26,8 @@ const router = new Router({
     {path: '/search-results/:q', component: SearchResults, name: 'search-results'},
     {path: '/contactForm', component: ContactForm, name: 'contact-form'},
     {path: '/products/:id', component: ProductDetails, name: 'product-details'},
-    {path: '/your-discounts', component: YourDiscounts, name: 'your-discounts'}
+    {path: '/your-discounts', component: YourDiscounts, name: 'your-discounts'},
+    {path: '/editing-products', component: EditingProducts, name: 'editing-products'}
   ]
-})
+});
 export default router

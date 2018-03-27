@@ -2,10 +2,10 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const store = new Vuex.Store({
-  // в этом свойстве будут храниться все наши данные:
+  // в этом свойстве будут храниться наши данные:
   state: {
     user: {
       email: '',
@@ -20,13 +20,13 @@ const store = new Vuex.Store({
   },
   mutations: {   
     signIn(state, payload) {
-      state.user = payload;      
+      state.user = payload;
     }    
   },
   actions: {
     
   }
 
-})
+});
 
 export default store
