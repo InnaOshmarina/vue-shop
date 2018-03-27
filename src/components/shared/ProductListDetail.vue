@@ -13,7 +13,7 @@
 
             </b-col>
             <b-col lg="2">
-                <span>от {{ productItem.price }} р.</span>
+                <span>{{ productItem.price }} р.</span>
             </b-col>
         </b-row>
         <hr>

@@ -8,7 +8,7 @@
             <p>{{ good.description }}</p>
         </b-col>
         <b-col lg="3">
-            <span>от {{ good.price }} р.</span>
+            <span>{{ good.price }} р.</span>
         </b-col>
     </b-row>
     <hr>   

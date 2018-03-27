@@ -46,8 +46,6 @@
     import Component from 'vue-class-component';
     import ItemDropdown from './ItemDropdown.vue';
     import Search from '../pages/Search.vue';
-    // import {categories} from '../../data.js';
-    // import {goods} from '../../data.js';
     import EditingProducts from '../pages/EditingProducts.vue';
     import YourDiscounts from '../pages/YourDiscounts.vue';
 

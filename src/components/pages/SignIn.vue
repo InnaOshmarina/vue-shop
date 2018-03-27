@@ -44,16 +44,13 @@
                   // console.log(response);
                   const sett = {
                     email: response.email,
-                    // если регистрация завершена - то показывается email пользователя:
                     signComplete: true,
                     uid: response.uid
                   };
                   console.log(this.$store);
-                  // мутацию сделать
-                  // this.show = false;
                   this.signError = false;
                   this.signSuccess = true;
-                    // мутация:
+                  // мутация:
                   this.$store.commit('signIn', sett);
                 })
                 .catch(error => {

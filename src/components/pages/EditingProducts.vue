@@ -12,7 +12,7 @@
                     <td>{{ index + 1 }}</td>
                     <td>{{ good.name }}</td>
                     <td>{{ good.description }}</td>
-                    <td>от {{ good.price }} р.</td>
+                    <td>{{ good.price }} р.</td>
                 </tr>
             </table>
         </div>
@@ -60,12 +60,13 @@
 <style lang="scss">
 
     th {
+        font-size: 1rem;
         text-align: center;
         vertical-align: middle;
     }
 
     td {
-        font-size: 1rem;
+        font-size: 0.875rem;
     }
 
 </style>
