@@ -23,6 +23,7 @@
 <script>
     import Vue from 'vue';
     import Component from 'vue-class-component';
+    import {} from '../../firebase';
 
       @Component({
           name: 'sign-in'
@@ -36,7 +37,7 @@
               this.user = {
                   email: '',
                   password: ''
-              }
+              };
           }
           enterUser() {
             firebase.auth().signInWithEmailAndPassword(this.user.email, this.user.password)
