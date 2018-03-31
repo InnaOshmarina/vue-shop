@@ -5,7 +5,7 @@
           <div class="form-group">
             <label for="email">Ваш email:</label>
             <!-- с помощью v-model соединяем импуты с данными-->
-            <input type="email" id="email" class="form-control" placeholder="Введите email:" required v-model="user.email">
+              <input type="email" id="email" class="form-control" placeholder="Введите email:" required v-model="user.email">
           </div>
           <div class="form-group">
             <label for="password">Ваш пароль (минимум 6 символов):</label>
@@ -67,8 +67,7 @@
             } else {
             firebase.auth().createUserWithEmailAndPassword(this.user.email, this.user.password)
               .then( () => {
-                // this.$emit('regSuccess', 'sign-in');
-                this.show = false;
+                // this.show = false;
                 this.signSuccess = true;
               })
               .catch( error => {

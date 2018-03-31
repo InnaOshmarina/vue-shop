@@ -81,14 +81,14 @@
                     <td style="padding: 0.3rem; vertical-align: middle">
                         <button type="button"
                                 class="btn btn-success btn-sm"
-                                @click.prevent="saveEdittingProduct(newProduct)"
+                                @click.prevent="saveEditingProduct(newProduct)"
                                 style="font-size: 0.625rem">Сохранить
                         </button>
                     </td>
                     <td style="padding: 0.3rem; vertical-align: middle">
                         <button type="button"
                                 class="btn btn-info btn-sm"
-                                @click.prevent="cancelEdittingProduct(newProduct['.key'])"
+                                @click.prevent="cancelEditingProduct(newProduct['.key'])"
                                 style="font-size: 0.625rem">Закрыть
                         </button>
                     </td>
@@ -138,11 +138,11 @@
             productsRef.child(key).update({ edit: true });
         }
 
-        cancelEdittingProduct(key) {
+        cancelEditingProduct(key) {
             productsRef.child(key).update({ edit: false });
         }
 
-        saveEdittingProduct(article) {
+        saveEditingProduct(article) {
             const key = article['.key'];
             productsRef.child(key).set({ newAddedProduct: article.newAddedProduct, edit: false });
         }
