@@ -11,6 +11,3 @@ const app = initializeApp({
 
 export const db = app.database();
 export const productsRef = db.ref('arrProducts');
-
-
-// export const ad = app.auth();

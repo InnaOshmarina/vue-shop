@@ -35,6 +35,7 @@
 <script>
     import Vue from 'vue';
     import Component from 'vue-class-component';
+    import firebase from 'firebase';
 
     @Component({
         name: 'sign-up'

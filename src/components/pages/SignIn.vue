@@ -15,7 +15,7 @@
         <strong>Поздравляю!</strong> Вы вошли в систему.
       </div>
       <div class="alert alert-danger mt-5" role="alert" v-if="signError">
-        <strong>Упс!</strong> что-то пошло не так.
+       Вы ввели неверный email или пароль.
       </div>
   </div>
 </template>
@@ -23,7 +23,7 @@
 <script>
     import Vue from 'vue';
     import Component from 'vue-class-component';
-    import {} from '../../firebase';
+    import firebase from 'firebase';
 
       @Component({
           name: 'sign-in'

@@ -1,7 +1,7 @@
 <template>
     <div>
         <b-form>
-            // Реализация функциональности добавления товаров
+            <!--Реализация функциональности добавления товаров-->
             <b-form-group label="Имя товара:"
                           label-for="input1"
                           class="mb-2">
@@ -53,11 +53,12 @@
                 <td></td>
                 <td></td>
             </tr>
+            <!--Здесь будут отображаться добавленные товары: -->
             <tbody v-for="newProduct of arrProducts" :key="newProduct['.key']">
                 <tr v-if="!newProduct.edit">
-                    <td><span>{{ newProduct.newAddedProduct.nameProduct }}</span></td>
+                    <td>{{ newProduct.newAddedProduct.nameProduct }}</td>
                     <td><span>{{ newProduct.newAddedProduct.descriptionProduct }}</span></td>
-                    <td><span>{{ newProduct.newAddedProduct.priceProduct }} р.</span></td>
+                    <td>{{ newProduct.newAddedProduct.priceProduct }} р.</td>
                     <td style="padding: 0.3rem; vertical-align: middle">
                         <button type="button"
                                 class="btn btn-danger btn-sm"
@@ -133,18 +134,13 @@
             productsRef.child(key).remove();
         }
 
-        editProduct(newProduct) {
-            productsRef.child(newProduct).update({ edit: true });
-            console.log('Лучшая фабрика');
+        editProduct(key) {
+            productsRef.child(key).update({ edit: true });
         }
 
         cancelEdittingProduct(key) {
             productsRef.child(key).update({ edit: false });
         }
-        // saveEdittingProduct(article) {
-        //     const keyP = article['.newProduct'];
-        //     productsRef.child(keyP).set({ newAddedProduct: article.newAddedProduct, edit: false });
-        // }
 
         saveEdittingProduct(article) {
             const key = article['.key'];
@@ -171,7 +167,6 @@
         }
 
     }
-
 </script>
 
 <style lang="scss" scoped>
