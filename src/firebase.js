@@ -13,4 +13,4 @@ export const db = app.database();
 export const productsRef = db.ref('arrProducts');
 
 
-export const ad = app.auth();
+// export const ad = app.auth();

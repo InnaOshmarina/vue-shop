@@ -1,5 +1,9 @@
 <template>
+  <div>
   <div>To do big discounts</div>
+  <input type="text">
+  <input type="email">
+  <input type="tel"></div>
 </template>
 
 <script>
