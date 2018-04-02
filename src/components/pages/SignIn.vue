@@ -1,14 +1,22 @@
 <template>
   <div class="for-sign-in">
-      <form class="mt-5" @submit.prevent="enterUser" v-if="!signComplete">
-        <div class="form-group">
-          <label for="email">Ваш email:</label>
-          <input type="email" id="email" class="form-control" placeholder="Введите email:" required v-model="user.email">
+      <form class="mt-5" @submit.prevent="enterUser" v-if="!signComplete" novalidate>
+        <div class="form-group" :class="{ 'has-error': errors.has('email') }">
+            <label class="control-label" for="email">Ваш email:</label>
+            <input name="email" type="email" id="email" class="form-control" placeholder="Введите email:" v-model="user.email"
+                   v-validate data-vv-rules="required|email">
+            <span v-show="errors.has('email')" class="help-block">
+                {{ errors.first('email') }}
+            </span>
         </div>
-        <div class="form-group">
-          <label for="password">Ваш пароль:</label>
-          <input type="password" id="password" class="form-control" placeholder="Введите пароль:" required v-model="user.password">
-        </div>
+          <div class="form-group" :class="{ 'has-error': errors.has('password') }">
+              <label class="control-label" for="password">Ваш пароль (минимум 6 символов):</label>
+              <input name="password" type="password" id="password" class="form-control" placeholder="Введите пароль:" v-model="user.password"
+                     v-validate data-vv-rules="required|min:6">
+              <span v-show="errors.has('password')" class="help-block" v-for="error in errors.collect('password')">
+                {{ error }}
+              </span>
+          </div>
         <button type="submit" class="btn btn-primary">Войти</button>
       </form>
       <div class="alert alert-success mt-5" role="alert" v-if="signComplete">

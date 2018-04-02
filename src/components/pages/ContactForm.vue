@@ -29,6 +29,7 @@
                     class="mb-4">      
             <b-form-textarea id="input3"
                             v-model="form.text"
+                             required
                             placeholder="Введите текст сообщения"
                             :rows="5"
                             :max-rows="50">

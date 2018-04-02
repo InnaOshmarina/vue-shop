@@ -1,27 +1,36 @@
 <template>
   <div class="for-sign-up">
 
-      <form class="mt-5" @submit.prevent="registerUser" v-if="show">
-          <div class="form-group">
-            <label for="email">Ваш email:</label>
+      <form class="mt-5" @submit.prevent="registerUser" v-if="show" novalidate>
+          <div class="form-group" :class="{ 'has-error': errors.has('email') }">
+            <label class="control-label" for="email">Ваш email:</label>
             <!-- с помощью v-model соединяем импуты с данными-->
-              <input type="email" id="email" class="form-control" placeholder="Введите email:" required v-model="user.email">
+              <input name="email" type="email" id="email" class="form-control" placeholder="Введите email:" v-model="user.email"
+                     v-validate data-vv-rules="required|email">
+              <span v-show="errors.has('email')" class="help-block">
+                  {{ errors.first('email') }}
+              </span>
           </div>
-          <div class="form-group">
-            <label for="password">Ваш пароль (минимум 6 символов):</label>
-            <input type="password" id="password" class="form-control" placeholder="Введите пароль:" required v-model="user.password">
+          <div class="form-group" :class="{ 'has-error': errors.has('password') }">
+            <label class="control-label" for="password">Ваш пароль (минимум 6 символов):</label>
+            <input name="password" type="password" id="password" class="form-control" placeholder="Введите пароль:" v-model="user.password"
+                   v-validate data-vv-rules="required|min:6">
+              <span v-show="errors.has('password')" class="help-block" v-for="error in errors.collect('password')">
+                {{ error }}
+              </span>
           </div>
-          <div class="form-group">
-            <label for="password2">Повторите пароль:</label>
-            <input type="password" id="password2" class="form-control" placeholder="Повторите пароль:" required v-model="user.confirmPassword">
+          <div class="form-group" :class="{ 'has-error': errors.has('repeat_password') }">
+            <label class="control-label" for="password2">Повторите пароль:</label>
+            <input name="repeat_password" type="password" id="password2" class="form-control" placeholder="Повторите пароль:" v-model="user.confirmPassword"
+                   v-validate data-vv-rules="confirmed:password">
+              <span v-show="errors.has('repeat_password')" class="help-block" v-for="error in errors.collect('repeat_password')">
+                {{ error }}
+              </span>
           </div>
           <div class="alert alert-danger" role="alert" v-if="errorConfirm">
             <strong>Упс! </strong>Пароли не совпадают.
           </div>
-          <div class="alert alert-danger" role="alert" v-if="errorSmall">
-            <strong>Упс! </strong>Пароль должен быть более 6 символов.
-          </div>
-          <button type="submit"class="btn btn-primary">Зарегистрироваться</button>
+          <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
       </form>
       <div class="alert alert-success mt-5" role="alert" v-if="signSuccess">
             <strong>Поздравляю!</strong> Вы зарегистрировались.
@@ -53,17 +62,13 @@
                 confirmPassword: ''
             };
             this.errorConfirm = false;
-            this.errorSmall = false
         }
 
         registerUser() {
             this.errorConfirm = false;
-            this.errorSmall = false;
             // вывод ошибки при несовпадении паролей:
             if (this.user.password !== this.user.confirmPassword) {
                 this.errorConfirm = true;
-            } else if (this.user.password.length < 6) {
-                this.errorSmall = true;
             } else {
             firebase.auth().createUserWithEmailAndPassword(this.user.email, this.user.password)
               .then( () => {
