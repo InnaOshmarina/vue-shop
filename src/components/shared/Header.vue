@@ -13,24 +13,22 @@
             <!-- Right aligned nav items -->
             <b-navbar-nav class="ml-auto" v-if="!signComplete">
 
-              <b-nav-item right>
-                <router-link :to="{ name: 'sign-in' }" @click="switchSign('sign-in')">Вход</router-link>
-              </b-nav-item>
+                <b-nav-item right>
+                  <router-link :to="{ name: 'sign-in' }" @click="switchSign('sign-in')">Вход</router-link>
+                </b-nav-item>
 
-              <b-nav-item right class="for-sign-up">
-                <router-link :to="{ name: 'sign-up' }" @click="switchSign('sign-up')">Регистрация</router-link> 
-              </b-nav-item>
+                <b-nav-item right class="for-sign-up">
+                  <router-link :to="{ name: 'sign-up' }" @click="switchSign('sign-up')">Регистрация</router-link>
+                </b-nav-item>
 
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto" v-else>
-              
-              <b-nav-item right>
-                <router-link :to="{ name: 'editing-products' }">Редактирование товаров</router-link>
-              </b-nav-item>
 
-              <b-nav-item right class="for-sign-up">
-                <router-link :to="{ name: 'your-discounts' }">Ваши скидки</router-link>
-              </b-nav-item>
+                <item-dropdown2></item-dropdown2>
+
+                <b-nav-item right class="for-sign-up">
+                  <router-link :to="{ name: 'your-discounts' }">Ваши скидки</router-link>
+                </b-nav-item>
            
             </b-navbar-nav>
 
@@ -46,7 +44,7 @@
     import Component from 'vue-class-component';
     import ItemDropdown from './ItemDropdown.vue';
     import Search from '../pages/Search.vue';
-    import EditingProducts from '../admin/EditingProducts.vue';
+    import ItemDropdown2 from '../admin/ItemDropdown2.vue';
     import YourDiscounts from '../admin/YourDiscounts.vue';
 
     @Component({
@@ -54,7 +52,7 @@
         components: {
             ItemDropdown,
             Search,
-            EditingProducts,
+            ItemDropdown2,
             YourDiscounts
         }
     })
@@ -99,6 +97,7 @@
 
   .ml-auto .for-sign-up a {
     margin-right: 0;
+    padding-right: 0;
   }
 
 </style>

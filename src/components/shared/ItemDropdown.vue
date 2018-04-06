@@ -32,7 +32,7 @@
   }
 
   .nav-item .dropdown-item:active {
-    background-color: #aff0be;;
+    background-color: #aff0be;
   }
 
 </style>
