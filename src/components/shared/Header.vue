@@ -46,8 +46,8 @@
     import Component from 'vue-class-component';
     import ItemDropdown from './ItemDropdown.vue';
     import Search from '../pages/Search.vue';
-    import EditingProducts from '../pages/EditingProducts.vue';
-    import YourDiscounts from '../pages/YourDiscounts.vue';
+    import EditingProducts from '../admin/EditingProducts.vue';
+    import YourDiscounts from '../admin/YourDiscounts.vue';
 
     @Component({
         name: 'header',

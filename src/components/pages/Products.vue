@@ -1,6 +1,7 @@
 <template>
     <div>
         <product-item :products="separateCategory"></product-item>
+        <!--<paginate></paginate>-->
     </div>
 </template>
 
@@ -10,6 +11,7 @@
     import ProductItem from '../shared/ProductItem.vue';
     import {categories} from '../../data.js';
     import {productApi} from "../../api/productApi";
+    // import Paginate from './Paginate.vue';
 
     @Component({
         name: 'products',
@@ -21,9 +23,8 @@
         constructor() {
             super();
             this.goods = [];
-            this.errors = [];
+            // this.errors = [];
             this.categories = categories;
-
         }
 
         // computed
@@ -44,9 +45,9 @@
                 .then(response => {
                     this.goods = response.data.results;
                 })
-                .catch(e => {
-                    this.errors.push(e)
-                })
+                // .catch(e => {
+                //     this.errors.push(e)
+                // })
         }
     }
 </script>

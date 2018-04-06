@@ -21,7 +21,7 @@
           <div class="alert alert-danger" role="alert" v-if="errorSmall">
             <strong>Упс! </strong>Пароль должен быть более 6 символов.
           </div>
-          <button type="submit"class="btn btn-primary">Зарегистрироваться</button>
+          <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
       </form>
       <div class="alert alert-success mt-5" role="alert" v-if="signSuccess">
             <strong>Поздравляю!</strong> Вы зарегистрировались.

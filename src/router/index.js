@@ -9,8 +9,8 @@ import SignUp from '../components/pages/SignUp.vue'
 import SearchResults from '../components/pages/SearchResults.vue'
 import ContactForm from '../components/pages/ContactForm.vue'
 import ProductDetails from '../components/pages/ProductDetails.vue'
-import YourDiscounts from '../components/pages/YourDiscounts.vue'
-import EditingProducts from '../components/pages/EditingProducts.vue'
+import YourDiscounts from '../components/admin/YourDiscounts.vue'
+import EditingProducts from '../components/admin/EditingProducts.vue'
 
 Vue.use(Router);
 
