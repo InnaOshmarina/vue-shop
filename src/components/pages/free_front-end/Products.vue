@@ -1,17 +1,15 @@
 <template>
     <div>
         <product-item :products="separateCategory"></product-item>
-        <!--<paginate></paginate>-->
     </div>
 </template>
 
 <script>
     import Vue from 'vue';
     import Component from 'vue-class-component';
-    import ProductItem from '../shared/ProductItem.vue';
-    import {categories} from '../../data.js';
-    import {productApi} from "../../api/productApi";
-    // import Paginate from './Paginate.vue';
+    import ProductItem from '../../shared/free_front-end/ProductItem.vue';
+    import {categories} from '../../../data.js';
+    import {productApi} from "../../../api/productApi";
 
     @Component({
         name: 'products',

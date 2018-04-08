@@ -104,7 +104,7 @@
 <script>
     import Vue from 'vue';
     import Component from 'vue-class-component';
-    import {categoriesRef} from '../../api/firebase';
+    import {categoriesRef} from '../../../api/firebase';
 
     @Component ({
         name: 'editing-categories',

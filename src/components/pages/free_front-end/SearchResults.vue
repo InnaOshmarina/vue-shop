@@ -13,8 +13,8 @@
 <script>
     import Vue from 'vue';
     import Component from 'vue-class-component';
-    import ProductItem from '../shared/ProductItem.vue';
-    import {productApi} from "../../api/productApi";
+    import ProductItem from '../../shared/free_front-end/ProductItem.vue';
+    import {productApi} from "../../../api/productApi";
 
     @Component({
         name: 'search-results',

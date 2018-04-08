@@ -132,11 +132,11 @@
 <script>
     import Vue from 'vue';
     import Component from 'vue-class-component';
-    import {productsRef} from '../../api/firebase';
-    import {categoriesRef} from '../../api/firebase';
+    import {productsRef} from '../../../api/firebase';
+    import {categoriesRef} from '../../../api/firebase';
     import EditingCategories from './EditingCategories.vue';
-    import {categories} from '../../data.js';
-    import {productApi} from "../../api/productApi";
+    import {categories} from '../../../data.js';
+    import {productApi} from '../../../api/productApi';
 
     @Component ({
         name: 'editing-products',

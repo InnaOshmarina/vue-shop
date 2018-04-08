@@ -1,17 +1,17 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from '../components/pages/Home.vue';
-import AboutUs from '../components/pages/AboutUs.vue';
-import Contacts from '../components/pages/Contacts.vue';
-import Products from '../components/pages/Products.vue';
-import SignIn from '../components/pages/SignIn.vue';
-import SignUp from '../components/pages/SignUp.vue';
-import SearchResults from '../components/pages/SearchResults.vue';
-import ContactForm from '../components/pages/ContactForm.vue';
-import ProductDetails from '../components/pages/ProductDetails.vue';
-import YourDiscounts from '../components/admin/YourDiscounts.vue';
-import EditingProducts from '../components/admin/EditingProducts.vue';
-import EditingCategories from '../components/admin/EditingCategories.vue';
+import Home from '../components/pages/free_front-end/Home.vue';
+import AboutUs from '../components/pages/free_front-end/AboutUs.vue';
+import Contacts from '../components/pages/free_front-end/Contacts.vue';
+import Products from '../components/pages/free_front-end/Products.vue';
+import SignIn from '../components/pages/free_front-end/SignIn.vue';
+import SignUp from '../components/pages/free_front-end/SignUp.vue';
+import SearchResults from '../components/pages/free_front-end/SearchResults.vue';
+import ContactForm from '../components/pages/free_front-end/ContactForm.vue';
+import ProductDetails from '../components/pages/free_front-end/ProductDetails.vue';
+import YourDiscounts from '../components/pages/admin/YourDiscounts.vue';
+import EditingProducts from '../components/pages/admin/EditingProducts.vue';
+import EditingCategories from '../components/pages/admin/EditingCategories.vue';
 
 Vue.use(Router);
 

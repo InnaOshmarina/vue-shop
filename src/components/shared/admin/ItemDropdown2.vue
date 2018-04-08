@@ -20,8 +20,8 @@
 <script>
     import Vue from 'vue';
     import Component from 'vue-class-component';
-    import EditingProducts from './EditingProducts.vue';
-    import EditingCategories from './EditingCategories.vue';
+    import EditingProducts from '../../pages/admin/EditingProducts.vue';
+    import EditingCategories from '../../pages/admin/EditingCategories.vue';
 
     @Component({
         name: 'item-dropdown2',

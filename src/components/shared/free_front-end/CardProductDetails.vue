@@ -1,31 +1,31 @@
 <template>
-  <div>
-    <table class="table table-bordered">
-        <tr>
-            <td>Имя товара</td>
-            <td class="for-name">{{ product.name }}</td>
-        </tr>
-        <tr>
-            <td>Описание товара</td>
-            <td>{{ product.description }}</td>
-        </tr>
-        <tr>
-            <td>Цена</td>
-            <td>от <b>{{ product.price }}</b> руб.</td>
-        </tr>
-    </table>
-  </div>
+    <div>
+        <table class="table table-bordered">
+            <tr>
+                <td>Имя товара</td>
+                <td class="for-name">{{ product.name }}</td>
+            </tr>
+            <tr>
+                <td>Описание товара</td>
+                <td>{{ product.description }}</td>
+            </tr>
+            <tr>
+                <td>Цена</td>
+                <td>от <b>{{ product.price }}</b> руб.</td>
+            </tr>
+        </table>
+    </div>
 </template>
 
 <script>
     import Vue from 'vue';
     import Component from 'vue-class-component';
-    import { productApi } from "../../api/productApi";
+    import { productApi } from "../../../api/productApi";
 
     @Component ({
-        name: 'product-details'
+        name: 'card-product-details'
     })
-    export default class ProductDetails extends Vue {
+    export default class CardProductDetails extends Vue {
         constructor() {
             super();
             this.goods = []
@@ -46,7 +46,6 @@
             return ourProduct;
         }
 
-        // Lifecycle Hook
         mounted() {
             productApi()
                 .then(response => {

@@ -42,10 +42,10 @@
 <script>
     import Vue from 'vue';
     import Component from 'vue-class-component';
-    import ItemDropdown from './ItemDropdown.vue';
-    import Search from '../pages/Search.vue';
-    import ItemDropdown2 from '../admin/ItemDropdown2.vue';
-    import YourDiscounts from '../admin/YourDiscounts.vue';
+    import ItemDropdown from './free_front-end/ItemDropdown.vue';
+    import Search from './free_front-end/Search.vue';
+    import ItemDropdown2 from './admin/ItemDropdown2.vue';
+    import YourDiscounts from '../pages/admin/YourDiscounts.vue';
 
     @Component({
         name: 'header',

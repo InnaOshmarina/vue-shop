@@ -11,7 +11,7 @@
 </template>
 
 <script>
-    import {categories} from '../../data.js';
+    import {categories} from '../../../data.js';
 
     export default {
       name: 'item-dropdown',
