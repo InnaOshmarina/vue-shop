@@ -53,6 +53,7 @@
                   this.signSuccess = true;
                   // мутация:
                   this.$store.commit('signIn', sett);
+                  this.$router.push('/admin');
                 })
                 .catch(error => {
                   this.signError = true;

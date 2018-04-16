@@ -1,28 +1,23 @@
 <template>
   <div id="app">
-      <Header class="pb-5"></Header>
-      <b-container>
           <router-view></router-view>
-      </b-container>
-      <main-footer class="mt-5"></main-footer>
   </div>
 </template>
 
 <script>
+    import Vue from 'vue';
+    import Component from 'vue-class-component';
 
-import Header from './components/shared/Header.vue'
-import MainFooter from './components/shared/MainFooter.vue'
+    @Component({
+        name: 'app'
+    })
+    export default class App extends Vue {
+        constructor() {
+            super();
 
-export default {
-  name: 'app',
-  components: {
-      Header,
-      MainFooter
-  },
-  data() {
-        return {}
-  }
-}
+        }
+    }
+
 </script>
 
 <style lang="scss" scoped>

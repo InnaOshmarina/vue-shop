@@ -55,7 +55,9 @@
                     </b-form-input>
                 </b-form-group>
                 <b-form-select v-model="newAddedProduct.categoryProduct" class="mb-3">
-                    <option :value="null">Выберите соответствующую категорию для товара</option>
+                    <template slot="first">
+                        <option :value="null" disabled>Выберите соответствующую категорию для товара</option>
+                    </template>
                     <option :value="option.newAddedCategory.nameCategory" v-for="option in arrCategories">
                         {{ option.newAddedCategory.nameCategory }}
                     </option>
@@ -104,7 +106,11 @@
                 </tr>
                 <tr v-else>
                     <td>
-                        <input type="text" v-model="newAddedCategory.numberCategory">
+                        <select v-model="newProduct.newAddedProduct.categoryProduct">
+                            <option :value="option.newAddedCategory.nameCategory" v-for="option in arrCategories">
+                                {{ option.newAddedCategory.nameCategory }}
+                            </option>
+                        </select>
                     </td>
                     <td><input type="text" v-model="newProduct.newAddedProduct.nameProduct"></td>
                     <td><textarea rows="5" cols="70" v-model="newProduct.newAddedProduct.descriptionProduct"></textarea></td>
@@ -152,10 +158,10 @@
         constructor() {
             super();
             this.goods = [];
-            // this.errors = [];
+            this.errors = [];
             this.categories = categories;
             this.newAddedProduct = {
-                categoryProduct: '',
+                categoryProduct: null,
                 nameProduct: '',
                 descriptionProduct: '',
                 priceProduct: ''
@@ -199,15 +205,19 @@
             }
         }
 
+        countProduct() {
+            newProduct.newAddedProduct.categoryProduct
+        }
+
         // Lifecycle Hook
         mounted() {
             productApi()
                 .then(response => {
                     this.goods = response.data.results;
                 })
-                // .catch(e => {
-                //     this.errors.push(e)
-                // })
+                .catch(e => {
+                    this.errors.push(e)
+                })
         }
 
     }

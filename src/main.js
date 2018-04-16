@@ -2,6 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import './api/firebase';
 import VueFire from 'vuefire';
+import VueCharts from 'vue-chartjs';
 import VuePaginate from 'vue-paginate';
 import VeeValidate from 'vee-validate';
 import router from './router';
@@ -10,6 +11,7 @@ import store from './store';
 
 Vue.use(BootstrapVue);
 Vue.use(VueFire);
+Vue.use(VueCharts);
 Vue.use(VuePaginate);
 Vue.use(VeeValidate);
 

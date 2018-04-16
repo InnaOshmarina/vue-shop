@@ -1,6 +1,6 @@
 <template>
     <b-nav-item right>
-        <b-nav-item-dropdown text="Редактирование">
+        <b-nav-item-dropdown text="Панель инструментов">
             <b-dropdown-item>
                 <router-link :to="{ name: 'editing-categories' }">
                     Категории товаров
@@ -13,6 +13,18 @@
                 </router-link>
             </b-dropdown-item>
 
+            <b-dropdown-item>
+                <router-link :to="{ name: 'statistics' }">
+                    Статистика
+                </router-link>
+            </b-dropdown-item>
+
+            <b-dropdown-item>
+                <router-link :to="{ name: 'your-discounts' }">
+                    Ваши скидки
+                </router-link>
+            </b-dropdown-item>
+
         </b-nav-item-dropdown>
     </b-nav-item>
 </template>
@@ -22,12 +34,16 @@
     import Component from 'vue-class-component';
     import EditingProducts from '../../pages/admin/EditingProducts.vue';
     import EditingCategories from '../../pages/admin/EditingCategories.vue';
+    import Statistics from '../../pages/admin/Statistics.vue';
+    import YourDiscounts from '../../pages/admin/YourDiscounts.vue';
 
     @Component({
         name: 'item-dropdown2',
         components: {
             EditingProducts,
-            EditingCategories
+            EditingCategories,
+            Statistics,
+            YourDiscounts
         }
     })
     export default class ItemDropdown2 extends Vue {

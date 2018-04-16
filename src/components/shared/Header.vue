@@ -1,6 +1,6 @@
 <template>
     <div>
-      <b-navbar toggleable="lg"> 
+      <b-navbar toggleable="lg" >
         <b-container>
           <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
           <b-navbar-brand><router-link :to="{ name: 'home' }" id="for-toolTip-1">P I X E L</router-link></b-navbar-brand>
@@ -22,20 +22,11 @@
                 </b-nav-item>
 
             </b-navbar-nav>
-            <b-navbar-nav class="ml-auto" v-else>
-
-                <item-dropdown2></item-dropdown2>
-
-                <b-nav-item right class="for-sign-up">
-                  <router-link :to="{ name: 'your-discounts' }">Ваши скидки</router-link>
-                </b-nav-item>
-           
-            </b-navbar-nav>
 
           </b-collapse>
         </b-container> 
       </b-navbar>
-      <search></search>   
+      <search></search>
     </div>
 </template>
 
@@ -44,25 +35,22 @@
     import Component from 'vue-class-component';
     import ItemDropdown from './free_front-end/ItemDropdown.vue';
     import Search from './free_front-end/Search.vue';
-    import ItemDropdown2 from './admin/ItemDropdown2.vue';
-    import YourDiscounts from '../pages/admin/YourDiscounts.vue';
 
     @Component({
         name: 'header',
         components: {
             ItemDropdown,
-            Search,
-            ItemDropdown2,
-            YourDiscounts
+            Search
         }
     })
-    export default class Products extends Vue {
+    export default class Header extends Vue {
         constructor() {
             super();
 
         }
+
         get signComplete() {
-              return this.$store.getters.getUser.signComplete;
+            return this.$store.getters.getUser.signComplete;
         }
 
         switchSign(currentSign) {

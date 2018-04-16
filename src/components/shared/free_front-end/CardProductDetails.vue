@@ -28,22 +28,28 @@
     export default class CardProductDetails extends Vue {
         constructor() {
             super();
-            this.goods = []
-        }
-
-        get product() {
-            let ourProduct = {
+            this.goods = [];
+            this.ourProduct = {
                 name: '',
                 description: '',
                 price: ''
-            };
+            }
+            // this.errors = errors
+        }
+
+        get product() {
+            // let ourProduct = {
+            //     name: '',
+            //     description: '',
+            //     price: ''
+            // };
 
             if (this.goods.length > 0) {
                 const ourId = this.$route.params.id;
-                ourProduct = this.goods.find(item => item.id === ourId);
+                this.ourProduct = this.goods.find(item => item.id === ourId);
             }
 
-            return ourProduct;
+            return this.ourProduct;
         }
 
         mounted() {

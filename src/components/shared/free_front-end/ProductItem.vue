@@ -19,6 +19,7 @@
     export default {
       name: 'product-item',
       props: ['products']
+
     }
 </script>
 
